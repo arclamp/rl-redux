@@ -1,3 +1,8 @@
+import { select } from 'd3-selection';
+
+import page from './template/page.jade';
+
 window.onload = () => {
-  console.log('hello, world');
+  select(document.body)
+    .html(page());
 };
