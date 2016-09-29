@@ -1,21 +1,30 @@
 import Immutable from 'immutable';
 
-const modes = makeEnum([
+import { makeEnum } from '../util';
+import { actionType } from '../action';
+
+const applicationMode = makeEnum([
   'startScreen'
 ]);
 
 const initial = Immutable.Map({
-  mode: modes.startScreen
+  mode: applicationMode.startScreen
 });
 
 const reducer = (state = initial, action = {}) => {
-  let newState;
+  let newState = state;
 
   switch (action.type) {
-    case action.switchMode:
-      newState = state.set('mode', action.mode);
+    case actionType.switchMode:
+      newState = newState.set('mode', action.mode);
       break;
   }
 
   return newState;
 };
+
+export {
+  applicationMode
+};
+
+export default reducer;

@@ -1,20 +1,17 @@
 import test from 'tape-catch';
 
-test('sample pass', t => {
-  t.pass('test passes');
-  t.end();
-});
+import reducer, { applicationMode } from '..';
+import { actionType,
+         switchMode } from '../../action';
 
-test('sample fail', t => {
-  t.fail('test fails');
-  t.end();
-});
+test('top-level reducer', t => {
+  t.ok(reducer, 'reducer function imported properly');
 
-test('sample exception', t => {
-  t.pass('one assertion passes');
+  let initState = reducer();
+  t.equals(initState.get('mode'), applicationMode.startScreen, 'Starting mode should be startScreen');
 
-  throw new Error('oops');
+  let nextState = reducer(initState, switchMode(applicationMode.project));
+  t.equals(nextState.get('mode'), applicationMode.project, 'Mode should change to "project"');
 
-  t.pass('but this one doesn\'t');
   t.end();
 });
