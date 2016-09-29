@@ -1,0 +1,77 @@
+.app
+  .header
+    h1 Header
+    ul
+      li: a(href="#").logo Logo
+      li: a(href="#").privacy Privacy
+      li: a(href="#").name Project Name
+      li: a(href="#").help Help button
+      li: a(href="#").menu Hamburger menu
+        ul.content.hidden
+          li: a(href="#").settings Project settings
+          li: a(href="#").close Close projects
+          li: a(href="#").logout Log out
+  .body
+    .background
+      h1 Background
+      ul
+        li: a(href="#").logo Logo
+    .dataset
+      h1 Dataset Panel
+      ul
+        li.name No file loaded
+        li: a(href="#").change Change dataset
+        li: a(href="#").settings Settings
+        li: a(href="#").help Help
+        li: a(href="#").status Status - incomplete
+        li.content Content
+
+    .matching
+      h1 Matching Panel
+      ul
+        li.name --
+        li: a(href="#").help Help
+        li: a(href="#").status Status - incomplete
+        li.content Content
+
+    .visualization
+      h1 Visualization Panel
+      ul
+        li.name None selected
+        li: a(href="#").export Export
+        li: a(href="#").change Change visualization
+        li: a(href="#").help Help
+        li: a(href="#").status Status - incomplete
+        li.content Content
+
+.modal
+  .dataset-status.hidden
+    h1 Dataset Status
+    ul
+      li Status message
+      li: a(href="#").dismiss Dismiss
+
+  .matching-status.hidden
+    h1 Matching Status
+    ul
+      li Status message
+      li: a(href="#").dismiss Dismiss
+
+  .visualization-status.hidden
+    h1 Visualization Status
+    ul
+      li Status message
+      li: a(href="#").dismiss Dismiss
+
+  .splash-screen.hidden
+    h1 Splash screen
+    ul
+      li: a(href="#").new-project New project
+      li: a(href="#").open-project Open project
+      li: a(href="#").start-with-dataset Start with dataset
+      li: a(href="#").start-with-vis Start with visualization
+
+  .project-settings
+    h1 Project Settings
+    ul
+      li: a(href="#").dismiss Dismiss
