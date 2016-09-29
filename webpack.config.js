@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: {
     rl: './src/index.js'
@@ -8,6 +10,11 @@ module.exports = {
     path: 'build',
     filename: '[name].js'
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'rl-redux'
+    })
+  ],
   module: {
     loaders: [
       {
