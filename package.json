@@ -1,0 +1,29 @@
+{
+  "name": "rl-redux",
+  "version": "0.1.0",
+  "description": "Redux-based mockup for Resonant Lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "serve": "http-server build -p ${PORT-3000}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronichoudhury-work/rl-redux.git"
+  },
+  "author": "Roni Choudhury",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ronichoudhury-work/rl-redux/issues"
+  },
+  "homepage": "https://github.com/ronichoudhury-work/rl-redux#readme",
+  "devDependencies": {
+    "babel-core": "^6.16.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "html-webpack-plugin": "^2.22.0",
+    "http-server": "^0.9.0",
+    "webpack": "^1.13.2"
+  }
+}
