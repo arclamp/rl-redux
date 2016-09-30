@@ -32,3 +32,9 @@ const observe = (store, onChange, selector) => {
 
 // A convenience function that points observe() at the application store.
 const observeStore = (onChange, selector = v => v) => observe(store, onChange, selector);
+
+export {
+  store,
+  observe,
+  observeStore
+};
