@@ -4,7 +4,8 @@ import { makeEnum } from '../util';
 import { actionType } from '../action';
 
 const applicationMode = makeEnum([
-  'startScreen'
+  'startScreen',
+  'project'
 ]);
 
 const initial = Immutable.Map({
