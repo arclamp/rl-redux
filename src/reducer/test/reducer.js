@@ -2,7 +2,7 @@ import test from 'tape-catch';
 
 import reducer, { applicationMode } from '..';
 import { actionType,
-         switchMode } from '../../action';
+         action } from '../../action';
 
 test('top-level reducer', t => {
   t.ok(reducer, 'reducer function imported properly');
@@ -10,7 +10,7 @@ test('top-level reducer', t => {
   let initState = reducer();
   t.equals(initState.get('mode'), applicationMode.startScreen, 'Starting mode should be startScreen');
 
-  let nextState = reducer(initState, switchMode(applicationMode.project));
+  let nextState = reducer(initState, action.switchMode(applicationMode.project));
   t.equals(nextState.get('mode'), applicationMode.project, 'Mode should change to "project"');
 
   t.end();
