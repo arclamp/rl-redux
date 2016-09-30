@@ -4,7 +4,8 @@
   "description": "Redux-based mockup for Resonant Lab",
   "main": "index.js",
   "scripts": {
-    "test": "find src -path '*/test/*.js' -exec babel-node {} ';' | tap-spec",
+    "test": "npm run test:raw | tap-spec",
+    "test:raw": "find src -path '*/test/*.js' -exec babel-node {} ';'",
     "build": "webpack",
     "serve": "http-server build -p ${PORT-3000}"
   },
