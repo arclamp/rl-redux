@@ -3,13 +3,13 @@ import Immutable from 'immutable';
 import { makeEnum } from '../util';
 import { actionType } from '../action';
 
-const applicationMode = makeEnum([
+const appMode = makeEnum([
   'startScreen',
   'project'
 ]);
 
 const initial = Immutable.Map({
-  mode: applicationMode.startScreen
+  mode: appMode.startScreen
 });
 
 const reducer = (state = initial, action = {}) => {
@@ -25,7 +25,7 @@ const reducer = (state = initial, action = {}) => {
 };
 
 export {
-  applicationMode
+  appMode
 };
 
 export default reducer;
