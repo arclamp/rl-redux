@@ -52,6 +52,10 @@ const render = (state) => {
       activateModal('projectSettings');
       break;
 
+    case appMode.datasetSettings:
+      activateModal('datasetSettings');
+      break;
+
     case appMode.helpScreen:
       activateModal('helpScreen');
       break;
@@ -112,6 +116,12 @@ window.onload = () => {
 
   // Project settings modal links.
   attachAction('.projectSettings .dismiss', 'project');
+
+  // Dataset panel links.
+  attachAction('.dataset .settings', 'datasetSettings');
+
+  // Dataset settings modal links.
+  attachAction('.datasetSettings .dismiss', 'project');
 
   // Help screen.
   attachAction('.helpScreen .dismiss', 'project');
