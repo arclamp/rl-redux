@@ -5,7 +5,9 @@ import { actionType } from '../action';
 
 const appMode = makeEnum([
   'startScreen',
-  'project'
+  'project',
+  'projectSettings',
+  'helpScreen'
 ]);
 
 const initial = Immutable.Map({

@@ -28,6 +28,10 @@ module.exports = {
       {
         test: /\.jade$/,
         loader: 'jade-loader'
+      },
+      {
+        test: /\.styl$/,
+        loaders: ['style-loader', 'css-loader', 'stylus-loader']
       }
     ]
   }

@@ -2,46 +2,46 @@
   .header
     h1 Header
     ul
-      li: a(href="#").logo Logo
-      li: a(href="#").privacy Privacy
-      li: a(href="#").name Project Name
-      li: a(href="#").help Help button
+      li: a(href="#").logo X Logo
+      li: a(href="#").privacy X Privacy
+      li: a(href="#").name X Project Name
+      li: a(href="#").help X Help button
       li: a(href="#").menu Hamburger menu
-        ul.content.hidden
-          li: a(href="#").settings Project settings
-          li: a(href="#").close Close projects
-          li: a(href="#").logout Log out
+        ul.menu-content.hidden
+          li: a(href="#").settings X Project settings
+          li: a(href="#").close X Close project
+          li: a(href="#").logout X Log out
   .body
     .background
       h1 Background
       ul
-        li: a(href="#").logo Logo
+        li: a(href="#").logo X Logo
     .dataset
       h1 Dataset Panel
       ul
         li.name No file loaded
-        li: a(href="#").change Change dataset
-        li: a(href="#").settings Settings
-        li: a(href="#").help Help
-        li: a(href="#").status Status - incomplete
+        li: a(href="#").change X Change dataset
+        li: a(href="#").settings X Settings
+        li: a(href="#").help X Help
+        li: a(href="#").status X Status - incomplete
         li.content Content
 
     .matching
       h1 Matching Panel
       ul
         li.name --
-        li: a(href="#").help Help
-        li: a(href="#").status Status - incomplete
+        li: a(href="#").help X Help
+        li: a(href="#").status X Status - incomplete
         li.content Content
 
     .visualization
       h1 Visualization Panel
       ul
         li.name None selected
-        li: a(href="#").export Export
-        li: a(href="#").change Change visualization
-        li: a(href="#").help Help
-        li: a(href="#").status Status - incomplete
+        li: a(href="#").export X Export
+        li: a(href="#").change X Change visualization
+        li: a(href="#").help X Help
+        li: a(href="#").status X Status - incomplete
         li.content Content
 
 .modal
@@ -49,29 +49,34 @@
     h1 Dataset Status
     ul
       li Status message
-      li: a(href="#").dismiss Dismiss
+      li: a(href="#").dismiss X Dismiss
 
   .matching-status.hidden
     h1 Matching Status
     ul
       li Status message
-      li: a(href="#").dismiss Dismiss
+      li: a(href="#").dismiss X Dismiss
 
   .visualization-status.hidden
     h1 Visualization Status
     ul
       li Status message
-      li: a(href="#").dismiss Dismiss
+      li: a(href="#").dismiss X Dismiss
 
-  .splash-screen.hidden
-    h1 Splash screen
+  .startScreen.hidden
+    h1 Start screen
     ul
-      li: a(href="#").new-project New project
-      li: a(href="#").open-project Open project
-      li: a(href="#").start-with-dataset Start with dataset
-      li: a(href="#").start-with-vis Start with visualization
+      li: a(href="#").new-project X New project
+      li: a(href="#").open-project X Open project
+      li: a(href="#").start-with-dataset X Start with dataset
+      li: a(href="#").start-with-vis X Start with visualization
 
-  .project-settings
+  .projectSettings.hidden
     h1 Project Settings
     ul
-      li: a(href="#").dismiss Dismiss
+      li: a(href="#").dismiss X Dismiss
+
+  .helpScreen.hidden
+    h1 Help Screen
+    ul
+      li: a(href="#").dismiss X Dismiss
