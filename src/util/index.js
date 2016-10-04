@@ -27,4 +27,4 @@ const makeEnum = (keys) => {
 
 export {
   makeEnum
-}
+};

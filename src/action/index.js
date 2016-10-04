@@ -14,4 +14,4 @@ const action = Object.freeze({
 export {
   actionType,
   action
-}
+};

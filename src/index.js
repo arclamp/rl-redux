@@ -72,7 +72,7 @@ const render = (state) => {
 const report = (state) => {
   console.log('[report]');
   console.log(state.toJS());
-}
+};
 
 const attachAction = (selector, mode) => {
   const sel = select(selector)

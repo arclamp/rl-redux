@@ -1,8 +1,7 @@
 import test from 'tape-catch';
 
 import reducer, { appMode } from '..';
-import { actionType,
-         action } from '../../action';
+import { action } from '../../action';
 
 test('top-level reducer', t => {
   t.ok(reducer, 'reducer function imported properly');

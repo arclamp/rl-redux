@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm run test:raw | tap-spec",
     "test:raw": "find src -path '*/test/*.js' -exec babel-node {} ';'",
+    "lint": "semistandard",
     "build": "webpack",
     "serve": "http-server build -p ${PORT-3000}"
   },
@@ -33,6 +34,7 @@
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
     "redux": "^3.6.0",
+    "semistandard": "^9.0.0",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
