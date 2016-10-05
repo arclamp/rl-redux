@@ -92,9 +92,16 @@ window.onload = () => {
 
   // Dataset panel links.
   attachAction('.dataset .settings', appMode.datasetSettings);
+  attachAction('.dataset .help', appMode.helpScreen);
 
   // Dataset settings modal links.
   attachAction('.datasetSettings .dismiss', appMode.project);
+
+  // Matching panel.
+  attachAction('.matching .help', appMode.helpScreen);
+
+  // Visualization panel.
+  attachAction('.visualization .help', appMode.helpScreen);
 
   // Help screen.
   attachAction('.helpScreen .dismiss', appMode.project);
