@@ -42,6 +42,30 @@ const render = (state) => {
   activateModal(modal);
 };
 
+const renderName = (name) => {
+  const nameElt = select('.header .name');
+  const mode = name.get('mode');
+
+  switch (mode) {
+    case 'name':
+      nameElt.text(name.get('name'))
+        .attr('href', '#')
+        .style('pointer-events', null)
+      break;
+
+    case 'saving':
+      select('.header .name-choices')
+        .classed('hidden', true);
+      nameElt.text('Saving...')
+        .attr('href', null)
+        .style('pointer-events', 'none')
+      break;
+
+    default:
+      throw new Error(`illegal name state "${mode}"`);
+  }
+};
+
 const report = (state) => {
   console.log('[report]');
   console.log(state.toJS());
@@ -61,8 +85,9 @@ window.onload = () => {
 
   // Hook up the store to various handlers.
   //
-  // One to render the page in response to application data.
+  // Several to render the page in response to application data.
   observeStore(render);
+  observeStore(renderName, (state) => state.get('name'));
 
   // One to dump application data to the console on each change.
   observeStore(report);
@@ -82,6 +107,20 @@ window.onload = () => {
     const ul = select(this.parentNode)
       .select('ul');
     ul.classed('hidden', !ul.classed('hidden'));
+  });
+
+  select('.header .name').on('click', () => {
+    const ul = select('.name-choices');
+    ul.classed('hidden', !ul.classed('hidden'));
+  });
+
+  selectAll('.name-choices .option').on('click', function () {
+    const name = select(this).text();
+    store.dispatch(action.saving());
+
+    window.setTimeout(() => {
+      store.dispatch(action.changeName(name));
+    }, 1000);
   });
 
   // Background links.

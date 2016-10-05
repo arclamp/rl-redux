@@ -16,7 +16,11 @@ const appMode = makeEnum('appMode', [
 ]);
 
 const initial = Immutable.Map({
-  mode: appMode.startScreen
+  mode: appMode.startScreen,
+  name: Immutable.Map({
+    mode: 'name',
+    name: 'Untitled (47)'
+  })
 });
 
 const reducer = (state = initial, action = {}) => {
@@ -25,6 +29,20 @@ const reducer = (state = initial, action = {}) => {
   switch (action.type) {
     case actionType.switchMode:
       newState = newState.set('mode', action.mode);
+      break;
+
+    case actionType.saving:
+      newState = newState.withMutations(m => {
+        m.setIn(['name', 'mode'], 'saving')
+          .setIn(['name', 'name'], 'Saving...');
+      });
+      break;
+
+    case actionType.changeName:
+      newState = newState.withMutations(m => {
+        m.setIn(['name', 'mode'], 'name')
+          .setIn(['name', 'name'], action.name);
+      });
       break;
   }
 
