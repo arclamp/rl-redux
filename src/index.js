@@ -22,8 +22,9 @@ const activateModal = (which) => {
     select('.app')
       .classed('hidden', true);
 
-    select(`.modal .${which}`)
-      .classed('hidden', false);
+    selectAll('.modal div').classed('hidden', function () {
+      return !select(this).classed(which);
+    });
   }
 };
 
@@ -93,6 +94,7 @@ window.onload = () => {
   //
   // Start screen links.
   attachAction('.startScreen .new-project', appMode.project);
+  attachAction('.startScreen .start-with-dataset', appMode.selectDataset);
 
   // Header links.
   attachAction('.header .logo', appMode.startScreen);
@@ -128,6 +130,7 @@ window.onload = () => {
 
   // Dataset panel links.
   attachAction('.dataset .settings', appMode.datasetSettings);
+  attachAction('.dataset .change', appMode.selectDataset);
   attachAction('.dataset .help', appMode.helpScreen);
   attachAction('.dataset .status', appMode.datasetStatus);
 
@@ -136,6 +139,11 @@ window.onload = () => {
 
   // Dataset settings modal links.
   attachAction('.datasetSettings .dismiss', appMode.project);
+
+  // Select dataset modal.
+  select('.selectDataset .dismiss').on('click', () => {
+    store.dispatch(action.switchMode(store.getState().get('lastMode')));
+  });
 
   // Matching panel.
   attachAction('.matching .help', appMode.helpScreen);

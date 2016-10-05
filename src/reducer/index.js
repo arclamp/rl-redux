@@ -12,11 +12,13 @@ const appMode = makeEnum('appMode', [
   'visualizationStatus',
   'visualizationExport',
   'datasetSettings',
+  'selectDataset',
   'helpScreen'
 ]);
 
 const initial = Immutable.Map({
   mode: appMode.startScreen,
+  lastMode: appMode.startScreen,
   name: Immutable.Map({
     mode: 'name',
     name: 'Untitled (47)'
@@ -28,7 +30,10 @@ const reducer = (state = initial, action = {}) => {
 
   switch (action.type) {
     case actionType.switchMode:
-      newState = newState.set('mode', action.mode);
+      newState = newState.withMutations(m => {
+        m.set('lastMode', m.get('mode'))
+          .set('mode', action.mode);
+      });
       break;
 
     case actionType.saving:
