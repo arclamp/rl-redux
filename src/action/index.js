@@ -1,6 +1,6 @@
 import { makeEnum } from '../util';
 
-const actionType = makeEnum([
+const actionType = makeEnum('actionType', [
   'switchMode'
 ]);
 

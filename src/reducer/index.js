@@ -3,7 +3,7 @@ import Immutable from 'immutable';
 import { makeEnum } from '../util';
 import { actionType } from '../action';
 
-const appMode = makeEnum([
+const appMode = makeEnum('appMode', [
   'startScreen',
   'project',
   'projectSettings',

@@ -97,14 +97,14 @@ window.onload = () => {
   // Attach redux actions to UI actions.
   //
   // Start screen links.
-  attachAction('.startScreen .new-project', 'project');
+  attachAction('.startScreen .new-project', appMode.project);
 
   // Header links.
-  attachAction('.header .logo', 'startScreen');
-  attachAction('.header .privacy', 'projectSettings');
-  attachAction('.header .help', 'helpScreen');
-  attachAction('.header .menu-content .settings', 'projectSettings');
-  attachAction('.header .menu-content .close', 'startScreen');
+  attachAction('.header .logo', appMode.startScreen);
+  attachAction('.header .privacy', appMode.projectSettings);
+  attachAction('.header .help', appMode.helpScreen);
+  attachAction('.header .menu-content .settings', appMode.projectSettings);
+  attachAction('.header .menu-content .close', appMode.startScreen);
   select('.header .menu').on('click', function () {
     const ul = select(this.parentNode)
       .select('ul');
@@ -112,17 +112,17 @@ window.onload = () => {
   });
 
   // Background links.
-  attachAction('.background .logo', 'startScreen');
+  attachAction('.background .logo', appMode.startScreen);
 
   // Project settings modal links.
-  attachAction('.projectSettings .dismiss', 'project');
+  attachAction('.projectSettings .dismiss', appMode.project);
 
   // Dataset panel links.
-  attachAction('.dataset .settings', 'datasetSettings');
+  attachAction('.dataset .settings', appMode.datasetSettings);
 
   // Dataset settings modal links.
-  attachAction('.datasetSettings .dismiss', 'project');
+  attachAction('.datasetSettings .dismiss', appMode.project);
 
   // Help screen.
-  attachAction('.helpScreen .dismiss', 'project');
+  attachAction('.helpScreen .dismiss', appMode.project);
 };
