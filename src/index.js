@@ -66,10 +66,7 @@ const renderName = (name) => {
   }
 };
 
-const report = (state) => {
-  console.log('[report]');
-  console.log(state.toJS());
-};
+const report = (state) => console.log('report', state.toJS());
 
 const attachAction = (selector, mode) => {
   const sel = select(selector)
