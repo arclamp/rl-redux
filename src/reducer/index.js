@@ -7,6 +7,9 @@ const appMode = makeEnum('appMode', [
   'startScreen',
   'project',
   'projectSettings',
+  'datasetStatus',
+  'matchingStatus',
+  'visualizationStatus',
   'datasetSettings',
   'helpScreen'
 ]);

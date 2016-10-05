@@ -93,15 +93,27 @@ window.onload = () => {
   // Dataset panel links.
   attachAction('.dataset .settings', appMode.datasetSettings);
   attachAction('.dataset .help', appMode.helpScreen);
+  attachAction('.dataset .status', appMode.datasetStatus);
+
+  // Dataset status modal.
+  attachAction('.datasetStatus .dismiss', appMode.project);
 
   // Dataset settings modal links.
   attachAction('.datasetSettings .dismiss', appMode.project);
 
   // Matching panel.
   attachAction('.matching .help', appMode.helpScreen);
+  attachAction('.matching .status', appMode.matchingStatus);
+
+  // Matching status modal.
+  attachAction('.matchingStatus .dismiss', appMode.project);
 
   // Visualization panel.
   attachAction('.visualization .help', appMode.helpScreen);
+  attachAction('.visualization .status', appMode.visualizationStatus);
+
+  // Visualization status modal.
+  attachAction('.visualizationStatus .dismiss', appMode.project);
 
   // Help screen.
   attachAction('.helpScreen .dismiss', appMode.project);

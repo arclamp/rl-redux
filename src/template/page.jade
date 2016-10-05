@@ -45,24 +45,6 @@
         li.content Content
 
 .modal
-  .dataset-status.hidden
-    h1 Dataset Status
-    ul
-      li Status message
-      li: a(href="#").dismiss X Dismiss
-
-  .matching-status.hidden
-    h1 Matching Status
-    ul
-      li Status message
-      li: a(href="#").dismiss X Dismiss
-
-  .visualization-status.hidden
-    h1 Visualization Status
-    ul
-      li Status message
-      li: a(href="#").dismiss X Dismiss
-
   .startScreen.hidden
     h1 Start screen
     ul
@@ -76,9 +58,27 @@
     ul
       li: a(href="#").dismiss X Dismiss
 
+  .datasetStatus.hidden
+    h1 Dataset Status
+    ul
+      li.statusLine [undefined]
+      li: a(href="#").dismiss X Dismiss
+
   .datasetSettings.hidden
     h1 Dataset Settings
     ul
+      li: a(href="#").dismiss X Dismiss
+
+  .matchingStatus.hidden
+    h1 Matching Status
+    ul
+      li.statusLine [undefined]
+      li: a(href="#").dismiss X Dismiss
+
+  .visualizationStatus.hidden
+    h1 Visualization Status
+    ul
+      li.statusLine [undefined]
       li: a(href="#").dismiss X Dismiss
 
   .helpScreen.hidden
