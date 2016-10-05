@@ -156,10 +156,14 @@ window.onload = () => {
   attachAction('.visualizationStatus .dismiss', appMode.project);
 
   // Export visualization modal.
+  const downloader = (ext) => () => {
+    console.log(`Downloading ${store.getState().getIn(['name', 'name'])}.${ext}`);
+    store.dispatch(action.switchMode(appMode.project));
+  };
+  select('.visualizationExport .png').on('click', downloader('png'));
+  select('.visualizationExport .svg').on('click', downloader('svg'));
+  select('.visualizationExport .html').on('click', downloader('html'));
   attachAction('.visualizationExport .dismiss', appMode.project);
-  attachAction('.visualizationExport .png', appMode.project);
-  attachAction('.visualizationExport .svg', appMode.project);
-  attachAction('.visualizationExport .html', appMode.project);
 
   // Help screen.
   attachAction('.helpScreen .dismiss', appMode.project);
