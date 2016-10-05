@@ -6,6 +6,8 @@ import { store,
          observeStore } from './store';
 import { appMode } from './reducer';
 import { action } from './action';
+import { enumName,
+         enumValue } from './util';
 
 import './style/index.styl';
 
@@ -27,46 +29,17 @@ const activateModal = (which) => {
 
 const render = (state) => {
   const mode = state.get('mode');
-  switch (mode) {
-    case appMode.startScreen:
-      activateModal('startScreen');
-      break;
 
-    case appMode.newProject:
-      activateModal('newProject');
-      break;
-
-    case appMode.openProject:
-      activateModal('openProject');
-      break;
-
-    case appMode.changeDataset:
-      activateModal('changeDataset');
-      break;
-
-    case appMode.changeVisualization:
-      activateModal('changeVisualization');
-      break;
-
-    case appMode.projectSettings:
-      activateModal('projectSettings');
-      break;
-
-    case appMode.datasetSettings:
-      activateModal('datasetSettings');
-      break;
-
-    case appMode.helpScreen:
-      activateModal('helpScreen');
-      break;
-
-    case appMode.project:
-      activateModal(null);
-      break;
-
-    default:
-      throw new Error(`illegal appMode: ${mode}`);
+  if (enumName(mode) !== 'appMode') {
+    throw new Error(`mode value "${mode}" must be from appMode enum`);
   }
+
+  let modal = enumValue(mode);
+  if (modal === 'project') {
+    modal = null;
+  }
+
+  activateModal(modal);
 };
 
 const report = (state) => {

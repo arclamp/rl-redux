@@ -1,6 +1,8 @@
 import test from 'tape-catch';
 
-import { makeEnum } from '..';
+import { makeEnum,
+         enumName,
+         enumValue } from '..';
 
 test('makeEnum()', t => {
   // Construct some non-clashing enums.
@@ -13,6 +15,8 @@ test('makeEnum()', t => {
   t.equal(enum1.one, 'enum1.one', 'Enum symbol value equals the symbol itself');
   t.equal(enum1.two, 'enum1.two', 'Enum symbol value equals the symbol itself');
   t.equal(enum1.three, 'enum1.three', 'Enum symbol value equals the symbol itself');
+  t.equal(enumName(enum1.one), 'enum1', 'Name of enum should match the name supplied when created');
+  t.equal(enumValue(enum1.one), 'one', 'Value of enum should match the value supplied when created');
 
   // Attempt to construct an enum with a previously used namespace.
   t.throws(() => {
