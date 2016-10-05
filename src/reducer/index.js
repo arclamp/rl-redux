@@ -10,6 +10,7 @@ const appMode = makeEnum('appMode', [
   'datasetStatus',
   'matchingStatus',
   'visualizationStatus',
+  'visualizationExport',
   'datasetSettings',
   'helpScreen'
 ]);

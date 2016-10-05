@@ -30,7 +30,7 @@ const activateModal = (which) => {
 const render = (state) => {
   const mode = state.get('mode');
 
-  if (enumName(mode) !== 'appMode') {
+  if (mode === undefined || enumName(mode) !== 'appMode') {
     throw new Error(`mode value "${mode}" must be from appMode enum`);
   }
 
@@ -111,9 +111,16 @@ window.onload = () => {
   // Visualization panel.
   attachAction('.visualization .help', appMode.helpScreen);
   attachAction('.visualization .status', appMode.visualizationStatus);
+  attachAction('.visualization .export', appMode.visualizationExport);
 
   // Visualization status modal.
   attachAction('.visualizationStatus .dismiss', appMode.project);
+
+  // Export visualization modal.
+  attachAction('.visualizationExport .dismiss', appMode.project);
+  attachAction('.visualizationExport .png', appMode.project);
+  attachAction('.visualizationExport .svg', appMode.project);
+  attachAction('.visualizationExport .html', appMode.project);
 
   // Help screen.
   attachAction('.helpScreen .dismiss', appMode.project);
