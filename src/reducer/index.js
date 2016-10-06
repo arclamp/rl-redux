@@ -14,6 +14,7 @@ const appMode = makeEnum('appMode', [
   'datasetSettings',
   'selectDataset',
   'selectVisualization',
+  'openProject',
   'helpScreen'
 ]);
 

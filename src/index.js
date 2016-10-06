@@ -94,6 +94,7 @@ window.onload = () => {
   //
   // Start screen links.
   attachAction('.startScreen .new-project', appMode.project);
+  attachAction('.startScreen .open-project', appMode.openProject);
   attachAction('.startScreen .start-with-dataset', appMode.selectDataset);
   attachAction('.startScreen .start-with-vis', appMode.selectVisualization);
 
@@ -126,6 +127,10 @@ window.onload = () => {
   // Background links.
   attachAction('.background .logo', appMode.startScreen);
 
+  // Open project modal.
+  const revertMode = () => store.dispatch(action.switchMode(store.getState().get('lastMode')));
+  select('.openProject .dismiss').on('click', revertMode);
+
   // Project settings modal links.
   attachAction('.projectSettings .dismiss', appMode.project);
 
@@ -142,9 +147,7 @@ window.onload = () => {
   attachAction('.datasetSettings .dismiss', appMode.project);
 
   // Select dataset modal.
-  select('.selectDataset .dismiss').on('click', () => {
-    store.dispatch(action.switchMode(store.getState().get('lastMode')));
-  });
+  select('.selectDataset .dismiss').on('click', revertMode);
 
   // Matching panel.
   attachAction('.matching .help', appMode.helpScreen);
@@ -163,9 +166,7 @@ window.onload = () => {
   attachAction('.visualizationStatus .dismiss', appMode.project);
 
   // Select visualization modal.
-  select('.selectVisualization .dismiss').on('click', () => {
-    store.dispatch(action.switchMode(store.getState().get('lastMode')));
-  });
+  select('.selectVisualization .dismiss').on('click', revertMode);
 
   // Export visualization modal.
   const downloader = (ext) => () => {
