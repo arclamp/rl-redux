@@ -3,13 +3,28 @@ import Immutable from 'immutable';
 import { makeEnum } from '../util';
 import { actionType } from '../action';
 
-const appMode = makeEnum([
+const appMode = makeEnum('appMode', [
   'startScreen',
-  'project'
+  'project',
+  'projectSettings',
+  'datasetStatus',
+  'matchingStatus',
+  'visualizationStatus',
+  'visualizationExport',
+  'datasetSettings',
+  'selectDataset',
+  'selectVisualization',
+  'openProject',
+  'helpScreen'
 ]);
 
 const initial = Immutable.Map({
-  mode: appMode.startScreen
+  mode: appMode.startScreen,
+  lastMode: appMode.startScreen,
+  name: Immutable.Map({
+    mode: 'name',
+    name: 'Untitled (47)'
+  })
 });
 
 const reducer = (state = initial, action = {}) => {
@@ -17,7 +32,24 @@ const reducer = (state = initial, action = {}) => {
 
   switch (action.type) {
     case actionType.switchMode:
-      newState = newState.set('mode', action.mode);
+      newState = newState.withMutations(m => {
+        m.set('lastMode', m.get('mode'))
+          .set('mode', action.mode);
+      });
+      break;
+
+    case actionType.saving:
+      newState = newState.withMutations(m => {
+        m.setIn(['name', 'mode'], 'saving')
+          .setIn(['name', 'name'], 'Saving...');
+      });
+      break;
+
+    case actionType.changeName:
+      newState = newState.withMutations(m => {
+        m.setIn(['name', 'mode'], 'name')
+          .setIn(['name', 'name'], action.name);
+      });
       break;
   }
 

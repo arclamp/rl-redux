@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm run test:raw | tap-spec",
     "test:raw": "find src -path '*/test/*.js' -exec babel-node {} ';'",
+    "lint": "semistandard",
     "build": "webpack",
     "serve": "http-server build -p ${PORT-3000}"
   },
@@ -24,6 +25,7 @@
     "babel-core": "^6.16.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
+    "css-loader": "^0.25.0",
     "d3": "^4.2.6",
     "es6-set": "^0.1.4",
     "html-webpack-plugin": "^2.22.0",
@@ -32,6 +34,10 @@
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
     "redux": "^3.6.0",
+    "semistandard": "^9.0.0",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.3.1",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.0",
     "tape-catch": "^1.0.6",

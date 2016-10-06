@@ -1,30 +1,47 @@
 import Set from 'es6-set';
 
-let used = new Set();
+let namespaces = new Set();
 
-const makeEnum = (keys) => {
+const makeEnum = (ns, keys) => {
   // Construct an object containing keys matching those passed in `keys`, whose
-  // values are the keys themselves, appending numeric tags as needed to
-  // disambiguate from earlier enums with the same key (allowing the same key to
-  // appear in multiple namespaced enums).
+  // values are the keys themselves, prefixed by the specified namespace.
+  //
+  // Dots are not allowed in the namespace name.
+  if (ns.indexOf('.') > -1) {
+    throw new Error('dots not allowed in namespace');
+  }
+
+  // Namespaces are not allowed to repeat.
+  if (namespaces.has(ns)) {
+    throw new Error(`duplicate namespace "${ns}"`);
+  }
+  namespaces.add(ns);
+
   let obj = {};
+
+  let used = new Set();
   keys.forEach((key) => {
-    let tag = 0;
-    let resolved = key;
-    while (used.has(resolved)) {
-      resolved = `${key}-${tag}`;
-      tag += 1;
+    if (key.indexOf('.') > -1) {
+      throw new Error('dots not allowed in key');
     }
 
-    obj[key] = resolved;
+    if (used.has(key)) {
+      throw new Error(`duplicate key "${key}"`);
+    }
+    used.add(key);
 
-    used.add(resolved);
+    obj[key] = `${ns}.${key}`;
   });
 
   // Freeze the resulting object so no one else can alter the values or keys.
   return Object.freeze(obj);
 };
 
+const enumName = (enumVal) => enumVal.split('.')[0];
+const enumValue = (enumVal) => enumVal.split('.')[1];
+
 export {
-  makeEnum
-}
+  makeEnum,
+  enumName,
+  enumValue
+};
