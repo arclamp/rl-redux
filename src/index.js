@@ -95,6 +95,7 @@ window.onload = () => {
   // Start screen links.
   attachAction('.startScreen .new-project', appMode.project);
   attachAction('.startScreen .start-with-dataset', appMode.selectDataset);
+  attachAction('.startScreen .start-with-vis', appMode.selectVisualization);
 
   // Header links.
   attachAction('.header .logo', appMode.startScreen);
@@ -153,12 +154,18 @@ window.onload = () => {
   attachAction('.matchingStatus .dismiss', appMode.project);
 
   // Visualization panel.
+  attachAction('.visualization .change', appMode.selectVisualization);
   attachAction('.visualization .help', appMode.helpScreen);
   attachAction('.visualization .status', appMode.visualizationStatus);
   attachAction('.visualization .export', appMode.visualizationExport);
 
   // Visualization status modal.
   attachAction('.visualizationStatus .dismiss', appMode.project);
+
+  // Select visualization modal.
+  select('.selectVisualization .dismiss').on('click', () => {
+    store.dispatch(action.switchMode(store.getState().get('lastMode')));
+  });
 
   // Export visualization modal.
   const downloader = (ext) => () => {

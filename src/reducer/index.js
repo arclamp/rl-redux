@@ -13,6 +13,7 @@ const appMode = makeEnum('appMode', [
   'visualizationExport',
   'datasetSettings',
   'selectDataset',
+  'selectVisualization',
   'helpScreen'
 ]);
 
